@@ -1,1 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Anubhav – Reaching the Unreached in Remote India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <style>
+    :root {
+      --primary: #1b6ca8;
+      --secondary: #f9a826;
+      --light-bg: #f7f7f7;
+      --dark: #222;
+      --text: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: #ffffff;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    header {
+      background: linear-gradient(135deg, #083c5d, #1b6ca8);
+      color: #fff;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    nav a {
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, #0d5885 0%, #1b6ca8 55%, #ffffff 55%);
+      color: #fff;
+      padding: 40px 0 60px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      margin-bottom: 12px;
+    }
+
+    .hero h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      margin-bottom: 18px;
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 4px;
+      font-size: 0.96rem;
+      font-weight: 600;
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: #222;
+      border-color: var(--secondary);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .hero-card {
+      background: #fff;
+      color: var(--dark);
+      padding: 18px 18px 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      margin-top: 30px;
+    }
+
+    .hero-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .hero-card p {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    section {
+      padding: 40px 0;
+    }
+
+    section:nth-of-type(odd) {
+      background: var(--light-bg);
+    }
+
+    h2.section-title {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: var(--dark);
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 0.95rem;
+      max-width: 650px;
+      margin: 0 auto 24px;
+      color: #666;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px 16px 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--secondary);
+      color: #222;
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    ul {
+      margin-left: 18px;
+      font-size: 0.92rem;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .metric {
+      background: #fff;
+      padding: 10px 14px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      min-width: 140px;
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .story {
+      background: #fff;
+      padding: 14px 16px;
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .story span.name {
+      display: block;
+      margin-top: 6px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    .donate-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .donate-note {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 24px;
+    }
+
+    footer {
+      background: #111;
+      color: #bbb;
+      padding: 22px 0;
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner,
+      .two-col,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 26px 0 30px;
+        background: linear-gradient(180deg, #0d5885 0%, #1b6ca8 70%, #ffffff 70%);
+      }
+
+      .hero-card {
+        margin-top: 10px;
+      }
+
+      header {
+        position: static;
+      }
+
+      nav ul {
+        justify-content: flex-start;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">ANUBHAV <span>NGO</span></div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#school">Sundarbans School</a></li>
+        <li><a href="#donate">Donate</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <h1>Reaching the Unreached in Jhargram, Bankura, Purulia & Sundarbans</h1>
+      <h2>Last-mile support for distressed and tribal communities where most NGOs cannot reach.</h2>
+      <p>
+        Anubhav is a people-led organisation working in some of the most remote and forested pockets of
+        West Bengal. With the help of local communities, we travel deep inside jungles and river islands to
+        support families with food, clothing, winter protection and educational support for their children.
+      </p>
+      <div class="hero-buttons">
+        <a href="#donate" class="btn btn-primary">Donate Now</a>
+        <a href="#school" class="btn btn-outline">Sponsor a Child</a>
+      </div>
+      <div class="metrics">
+        <div class="metric">
+          <strong>70+</strong>
+          Children in our Sundarbans tuition centre
+        </div>
+        <div class="metric">
+          <strong>4</strong>
+          Districts: Jhargram, Bankura, Purulia, Sundarbans
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="hero-card">
+        <h3>Your support makes this possible:</h3>
+        <p>₹300/month – 1 month of tuition for a child in Sundarbans</p>
+        <p>₹500 – New clothes for 1 child during Durga Puja</p>
+        <p>₹400 – 1 warm blanket for an elderly person in winter</p>
+        <p style="margin-top:8px;font-size:0.85rem;color:#555;">
+          <strong>Every rupee helps us cross rivers, fields and forests to stand beside
+          those who are otherwise left out.</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Anubhav</h2>
+    <p class="section-subtitle">
+      Anubhav is a grassroots non-profit collective of around 25 dedicated members. We work
+      with tribal and distressed families in hard-to-reach areas of West Bengal, India. Our mission is
+      simple: be physically present where others cannot go, and provide meaningful, respectful support.
+    </p>
+
+    <div class="two-col">
+      <div>
+        <h3>Who we are</h3>
+        <p>
+          We started Anubhav after witnessing how entire villages in remote forest areas and
+          river islands were missing from most development efforts. Roads are broken, mobile
+          networks are weak, and without local guidance, outsiders cannot even find some of the hamlets.
+        </p>
+        <p>
+          Our team includes volunteers and local community members who guide us safely through the
+          jungles and river routes of:
+        </p>
+        <ul>
+          <li>Jhargram</li>
+          <li>Bankura</li>
+          <li>Purulia</li>
+          <li>Sundarbans (river island villages)</li>
+        </ul>
+        <p>
+          With a modest annual budget of around <span class="highlight">₹1.5 lakh</span>, we prioritise
+          direct support to families and children, keeping administrative costs low and community ownership high.
+        </p>
+      </div>
+
+      <div>
+        <h3>What makes us different</h3>
+        <div class="card">
+          <span class="badge">Last-Mile Access</span>
+          <p>
+            Our strength is in <strong>deep reach</strong>. We go beyond the main roads, using
+            local knowledge to connect with families who rarely, if ever, receive support
+            from formal systems or larger NGOs.
+          </p>
+        </div>
+        <div class="card" style="margin-top:10px;">
+          <span class="badge">Local Relationships</span>
+          <p>
+            We work <strong>with</strong> the community, not just <strong>for</strong> them.
+            Villagers guide us, help identify the most distressed families, and assist in organising
+            distributions and educational activities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="container">
+    <h2 class="section-title">Our Work</h2>
+    <p class="section-subtitle">
+      We focus on simple, concrete interventions that immediately improve the lives of children,
+      elders and vulnerable families in remote tribal and riverine communities.
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Food Support</h3>
+        <p>
+          In times of distress, natural calamity or acute need, we provide basic food support to families
+          in remote hamlets. Our team carries essentials across difficult terrain to reach those who have
+          little or no access to markets and relief.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Clothing & Festival Support</h3>
+        <p>
+          Around Durga Puja and other key times of the year, we distribute clothes for children and elders
+          so that even the most marginalised families can celebrate with dignity. For many children, this
+          is the only new dress they receive all year.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Blankets & Winter Relief</h3>
+        <p>
+          Winters can be harsh for elders and small children living in poorly insulated homes. We
+          distribute warm blankets in interior villages, prioritising elderly people and families in
+          the most difficult conditions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Education Support</h3>
+        <p>
+          We run a tuition centre for 70 children on a Sundarbans island, helping them stay in school and
+          build strong foundations in basic subjects. This small but dedicated space gives children a safe
+          place to learn, ask questions and dream of a different future.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="school">
+  <div class="container">
+    <h2 class="section-title">Sundarbans Island Tuition Centre</h2>
+    <p class="section-subtitle">
+      On a river island in the Sundarbans, far from city facilities, 70 children gather for
+      daily tuition classes supported by Anubhav. Your contribution keeps this lifeline of learning open.
+    </p>
+
+    <div class="two-col">
+      <div>
+        <h3>Why this school matters</h3>
+        <p>
+          Children in the Sundarbans face multiple challenges: long distances to formal schools, frequent
+          flooding and cyclones, economic pressure on families, and a lack of quiet, safe study spaces.
+        </p>
+        <p>
+          Our tuition centre provides:
+        </p>
+        <ul>
+          <li>Daily support in core subjects</li>
+          <li>Guidance for homework and exams</li>
+          <li>A safe and encouraging environment</li>
+          <li>Attention for children who are at risk of dropping out</li>
+        </ul>
+        <p>
+          We work closely with parents and local leaders to keep education a priority, even when times are tough.
+        </p>
+      </div>
+
+      <div>
+        <h3>Sponsor a Child’s Education</h3>
+        <div class="card">
+          <p>
+            Approximate cost to support one child’s tuition at our Sundarbans centre:
+          </p>
+          <ul>
+            <li><strong>₹300 per month</strong> (or</li>
+            <li><strong>₹3,600 per year</strong>)</li>
+          </ul>
+          <p style="margin-top:8px;">
+            This helps cover teacher support, basic learning materials, and the running costs of the centre.
+          </p>
+          <p style="margin-top:8px;">
+            <strong>How it works:</strong>
+          </p>
+          <ul>
+            <li>You choose to sponsor 1 or more children.</li>
+            <li>You contribute monthly or yearly.</li>
+            <li>We share periodic updates and photos from the centre.</li>
+          </ul>
+        </div>
+        <p style="margin-top:10px;font-size:0.9rem;">
+          To start sponsoring, please visit the <a href="#donate">Donate</a> section or contact us directly.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <div class="container">
+    <h2 class="section-title">Stories from the Field</h2>
+    <p class="section-subtitle">
+      Names and details changed for privacy. Photos used with consent where applicable.
+    </p>
+
+    <div class="story">
+      <p>
+        In a small hamlet deep inside the forest in Jhargram, an elderly widow lived alone in a mud house with a
+        leaking roof and no warm bedding. Every winter, she would sit awake most of the night, unable to sleep in
+        the cold. With the support of our donors, we were able to bring her a thick blanket and some basic food
+        essentials. When our team visited her a month later, she told us, “This is the first winter in many years
+        when I have slept peacefully.”
+      </p>
+      <span class="name">– Field visit, Jhargram</span>
+    </div>
+  </div>
+</section>
+
+<section id="donate">
+  <div class="container">
+    <h2 class="section-title">Donate & Support Anubhav</h2>
+    <p class="section-subtitle">
+      Your contribution, big or small, helps us reach families in some of the most remote corners of
+      West Bengal with dignity, care and consistent support.
+    </p>
+
+    <div class="donate-options">
+      <div class="card">
+        <h3>Monthly Support</h3>
+        <ul>
+          <li>₹300/month – Sponsor 1 child’s tuition</li>
+          <li>₹600/month – Sponsor 2 children</li>
+          <li>₹1,000/month – Support our remote relief work</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>One-Time Gifts</h3>
+        <ul>
+          <li>₹500 – New clothes for 1 child during Durga Puja</li>
+          <li>₹1,000 – Winter blankets for 2 elders</li>
+          <li>₹5,000 – Support a small camp in a remote village</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Bank / UPI Details</h3>
+        <p><strong>UPI ID:</strong> <em>[your-upi-id@bank]</em></p>
+        <p><strong>Bank Name:</strong> <em>[Your Bank Name]</em></p>
+        <p><strong>Account Name:</strong> <em>Anubhav</em></p>
+        <p><strong>Account Number:</strong> <em>[Your Account Number]</em></p>
+        <p><strong>IFSC Code:</strong> <em>[IFSC CODE]</em></p>
+        <p style="margin-top:6px;font-size:0.9rem;">
+          You may also generate and insert your <strong>UPI QR code image</strong> here so donors can simply scan and pay.
+        </p>
+      </div>
+    </div>
+
+    <p class="donate-note">
+      For receipts, 80G details (if applicable), or large donations / CSR partnerships,
+      please contact us directly using the details below. We are happy to share our registration
+      documents and basic financial information.
+    </p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">
+      If you would like to volunteer, visit our project locations, collaborate, or simply know more about
+      our work, we would love to hear from you.
+    </p>
+
+    <div class="contact-grid">
+      <div>
+        <h3>Get in touch</h3>
+        <p><strong>Organisation:</strong> Anubhav</p>
+        <p><strong>Location:</strong> Working in Jhargram, Bankura, Purulia and Sundarbans, West Bengal, India</p>
+        <p><strong>Phone / WhatsApp:</strong> <em>[Your Primary Contact Number]</em></p>
+        <p><strong>Email:</strong> <em>[youremail@example.com]</em></p>
+        <p><strong>Social Media:</strong> <em>[Facebook / Instagram / YouTube links]</em></p>
+        <p style="margin-top:8px;font-size:0.9rem;">
+          You can also message us on WhatsApp for quick updates and volunteer opportunities.
+        </p>
+      </div>
+
+      <div>
+        <h3>Visit Our Work</h3>
+        <p style="font-size:0.9rem;">
+          We periodically organise field visits for small groups of supporters, students and CSR teams
+          to:
+        </p>
+        <ul>
+          <li>Our Sundarbans tuition centre</li>
+          <li>Interior villages in Jhargram, Bankura and Purulia</li>
+        </ul>
+        <p style="font-size:0.9rem;margin-top:6px;">
+          To plan a visit, please contact us at least 2–3 weeks in advance. Travel to some locations
+          may require walking, boat rides or local transport with our team.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>
+      &copy; <span id="year"></span> Anubhav. All rights reserved.
+      &nbsp;|&nbsp;
+      Website content can be reused with credit to Anubhav.
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Auto-update year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
